@@ -1,0 +1,39 @@
+
+<ion-content [fullscreen]="true" class="background">
+  
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>RegistrAPP</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="content-wrapper margin-top:40px">
+    <h6 class="custom-ti">Bienvenido {{usuario}}</h6>
+  </div>
+
+  <ion-card class="custom-card">
+    <img src="https://www.altavoz.net/altavoz/site/artic/20230821/imag/foto_0000000420230821145008/william-hook-9e9PD9blAto-unsplash.jpg" alt="" />
+    <ion-card-header class="custom-header">
+      <ion-card-title class="custom-title">Programacion de Apps Moviles </ion-card-title>
+    </ion-card-header>
+    
+    <ion-card-content class="custom-content">
+      Bienvenido {{usuario}} de vuelta a tu portal, por favor registra tu asistencia
+    </ion-card-content>
+  </ion-card>
+
+  <div class="button-container">
+    <ion-button expand="block" color="" class="animated-button" (click)="asisAlert()">
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+      Registrar
+    </ion-button>
+  </div>
+
+</ion-content>
+
+<ion-footer [translucent]="true">
+  <ion-toolbar>
+    <ion-title >Duoc UC </ion-title>
+  </ion-toolbar>
+</ion-footer>
+

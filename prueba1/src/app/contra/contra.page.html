@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+       RegistrAPP
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background">
+  <div class="content-wrapper">
+    <h6 class="custom-header">Recuperar Contraseña</h6>
+  </div>
+
+  <ion-item class="custom-item">
+    <ion-label position="undefined">Usuario:</ion-label>
+    <ion-input [(ngModel)]="Usuario"></ion-input>
+  </ion-item>
+
+  <div>
+    <ion-button class="custom-button" expand="full" shape="round" color="tertiary" (click)="presentAlert()">Recuperar</ion-button> 
+  </div>
+
+  
+</ion-content>
+
+
+<ion-footer [translucent]="true">
+  <ion-toolbar>
+    <ion-title >Duoc UC </ion-title>
+  </ion-toolbar>
+</ion-footer>

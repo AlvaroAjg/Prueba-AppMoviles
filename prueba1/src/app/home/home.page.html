@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+       RegistrAPP
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+ <ion-content class="background">
+  <div class="img_principal">
+    <img src="https://www.colegiopatmos.cl/wp-content/uploads/2024/05/hi-Logo-Colegio-Patmos-Horizontal-color-fondo-negro.png" alt="">
+  </div>
+
+  <div class="content-wraper">
+    <h6 class="custom-header">Inicio de Sesión</h6>
+  </div>
+  
+  <div class="container custom-container">
+      <ion-item class="custom-item label">
+        <ion-label position="undefined">Usuario:</ion-label>
+        <ion-input [(ngModel)]="Usuario"></ion-input>
+      </ion-item>
+      
+      <ion-item class="custom-item label">
+        <ion-label position="undefined">Contraseña:</ion-label>
+        <ion-input type="password" [(ngModel)]="Password"></ion-input>
+      </ion-item>
+  </div>
+  
+    <div>
+        <ion-button class="custom-button" expand="block" (click)="irPaginaInicio()">Ingresar</ion-button>
+    </div>
+    
+    <div>
+        <ion-button class="custom-button Reestablecer-btn" fill="clear" (click)="irPaginaContra()">¿Quiere Restablecer su Contraseña?</ion-button>
+    </div>
+  
+   
+
+ </ion-content>
+
+
+
+
+<ion-footer [translucent]="true">
+  <ion-toolbar>
+    <ion-title >Duoc UC </ion-title>
+  </ion-toolbar>
+</ion-footer>
+
+
+
