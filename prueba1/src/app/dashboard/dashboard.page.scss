@@ -1,0 +1,41 @@
+
+.content-wrapper {
+    background: #fef9e7; /* Un color claro y cálido para el fondo del wrapper */
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más suave */
+    padding: 30px 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    top: 20%; /* Mueve el contenedor hacia abajo, colocándolo en la mitad superior de la pantalla */
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: #5a67d8; /* Color azul para combinar con el fondo */
+    margin-bottom: 15px;
+  }
+  
+  p {
+    color: #2d3748; /* Color de texto oscuro para contraste */
+    margin-bottom: 30px;
+  }
+  
+  .custom-button {
+    --background: #ff6f61; /* Color vibrante */
+    --background-hover: #ff3d3d;
+    --border-radius: 12px;
+    --color: white;
+    --padding: 15px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    --box-shadow: 0 4px 12px rgba(255, 111, 97, 0.4); /* Sombra del botón */
+  }
+  
+  .custom-button:last-child {
+    --background: #ffc75f; /* Color diferente para el botón "Volver" */
+    --background-hover: #f4a261;
+    --box-shadow: 0 4px 12px rgba(255, 199, 95, 0.4);
+  }
+  

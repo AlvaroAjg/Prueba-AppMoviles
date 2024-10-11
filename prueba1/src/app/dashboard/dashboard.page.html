@@ -1,11 +1,30 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-title>Dashboard</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  
-  <ion-content>
+  <ion-toolbar>
+    <ion-title>RegistAPP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <div class="content-wrapper">
     <h1>Bienvenido, {{ username }}</h1>
     <p>Esta es una página protegida.</p>
-  </ion-content>  
+    <div>
+      <ion-button class="custom-button" expand="block" (click)="irainicio()">Ir a registrar</ion-button>
+    </div>
+    <div class="button-container">
+      <ion-button expand="block" color="danger" class="animated-button" (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+        Cerrar Sesión
+      </ion-button>
+    </div>
+  </div>
+
+  
+</ion-content>
+
+
+<ion-footer [translucent]="true">
+  <ion-toolbar>
+    <ion-title >Duoc UC </ion-title>
+  </ion-toolbar>
+</ion-footer>

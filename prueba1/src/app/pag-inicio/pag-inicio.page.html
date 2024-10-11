@@ -3,12 +3,17 @@
   
   <ion-header [translucent]="true">
     <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="goToDashboard()">
+          <ion-icon slot="icon-only" name="home-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
       <ion-title>RegistrAPP</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div class="content-wrapper margin-top:40px">
-    <h6 class="custom-ti">Bienvenido {{usuario}}</h6>
+    <h6 class="custom-ti">Asistencia {{usuario}}</h6>
   </div>
 
   <ion-card class="custom-card">

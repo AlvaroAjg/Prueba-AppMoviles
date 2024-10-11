@@ -18,6 +18,10 @@ export class PagInicioPage implements OnInit {
     
     }
 
+    goToDashboard() {
+      this.router.navigate(['/dashboard']);
+    }
+
     async asisAlert(){
       const alert = await this.alertCtrl.create({
         header:'Asistencia Registrada con exito',
