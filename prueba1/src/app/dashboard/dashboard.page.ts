@@ -14,10 +14,10 @@ export class DashboardPage implements OnInit {
   constructor(
     private router: Router, 
     private authService: AuthService, 
-    private alertController: AlertController // Inyectamos AlertController
+    private alertController: AlertController 
   ) {}
 
-  // Mostrar la alerta de confirmación de cierre de sesión
+  
   async presentLogoutAlert(): Promise<void> {
     const alert = await this.alertController.create({
       header: 'Cierre de Sesión',
@@ -33,8 +33,8 @@ export class DashboardPage implements OnInit {
         {
           text: 'Cerrar sesión',
           handler: () => {
-            this.authService.logout(); // Cerrar sesión
-            this.router.navigate(['/home']); // Redirigir al home
+            this.authService.logout();
+            this.router.navigate(['/home']); 
             console.log('Sesión cerrada');
           }
         }
@@ -44,14 +44,18 @@ export class DashboardPage implements OnInit {
     await alert.present();
   }
 
-  // Método que se ejecuta al hacer clic en "Volver"
+  
   logout() {
-    this.presentLogoutAlert(); // Mostrar alerta de confirmación
+    this.presentLogoutAlert(); 
   }
 
-  // Navegar a registrar sin mostrar alerta
+  
   irainicio() {
-    this.router.navigate(['/pag-inicio']); // Navegar a la página de inicio de registro
+    this.router.navigate(['/pag-inicio']); 
+  }
+
+  iracalendario() {
+    this.router.navigate(['/calendario']); 
   }
 
   ngOnInit() {

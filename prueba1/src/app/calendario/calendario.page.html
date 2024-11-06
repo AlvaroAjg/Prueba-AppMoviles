@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons class="casa" slot="start">
+      <ion-button (click)="goToDashboard()">
+        <ion-icon slot="icon-only" name="home-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>RegistrAPP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <form (ngSubmit)="crearEvento()">
+    <ion-item>
+      <ion-label position="stacked">Título</ion-label>
+      <ion-input [(ngModel)]="eventoData.summary" name="summary" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Descripción</ion-label>
+      <ion-input [(ngModel)]="eventoData.description" name="description"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Ubicación</ion-label>
+      <ion-input [(ngModel)]="eventoData.location" name="location"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Fecha y hora de inicio</ion-label>
+      <ion-datetime [(ngModel)]="eventoData.start" name="start" display-format="YYYY-MM-DDTHH:mm"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Fecha y hora de finalización</ion-label>
+      <ion-datetime [(ngModel)]="eventoData.end" name="end" display-format="YYYY-MM-DDTHH:mm"></ion-datetime>
+    </ion-item>
+
+    <ion-button class="evento" expand="block" type="submit">Crear Evento</ion-button>
+  </form>
+</ion-content>

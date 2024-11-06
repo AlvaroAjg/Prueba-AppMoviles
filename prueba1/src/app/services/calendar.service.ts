@@ -1,55 +1,106 @@
 import { Injectable } from '@angular/core';
 
+
 declare const gapi: any;
+declare const google: any;
 
 @Injectable({
   providedIn: 'root'
 })
 export class CalendarService {
-  CLIENT_ID = '"637805065769-hejs1g9jn3mut2m9pqlg62cvor7f9e87.apps.googleusercontent.com"';
-  DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-  SCOPES = "https://www.googleapis.com/auth/calendar.events";
+  private readonly CLIENT_ID = '637805065769-dsbs0koum1iqc6gsdrtsnnon7s1fdm31.apps.googleusercontent.com';
+  private readonly DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'];
+  private readonly SCOPES = 'https://www.googleapis.com/auth/calendar.events';
+
+  private tokenClient: any;
+  private gapiInited = false;
+  private gisInited = false;
 
   constructor() {
-    gapi.load('client:auth2', () => {
-      gapi.client.init({
-        clientId: this.CLIENT_ID,
+    this.loadScripts();
+  }
+
+  private loadScripts(): void {
+    // Cargar el script de Google API
+    const gapiScript = document.createElement('script');
+    gapiScript.src = 'https://apis.google.com/js/api.js';
+    gapiScript.async = true;
+    gapiScript.defer = true;
+    gapiScript.onload = () => this.gapiLoaded();
+    document.head.appendChild(gapiScript);
+
+    // Cargar el script de Google Identity Services
+    const gisScript = document.createElement('script');
+    gisScript.src = 'https://accounts.google.com/gsi/client';
+    gisScript.async = true;
+    gisScript.defer = true;
+    gisScript.onload = () => this.gisLoaded();
+    document.head.appendChild(gisScript);
+  }
+
+  private gapiLoaded(): void {
+    gapi.load('client', async () => {
+      await gapi.client.init({
         discoveryDocs: this.DISCOVERY_DOCS,
-        scope: this.SCOPES
       });
+      this.gapiInited = true;
     });
   }
 
-  async signIn() {
-    const GoogleAuth = gapi.auth2.getAuthInstance();
-    await GoogleAuth.signIn();
+  private gisLoaded(): void {
+    this.tokenClient = google.accounts.oauth2.initTokenClient({
+      client_id: this.CLIENT_ID,
+      scope: this.SCOPES,
+      callback: '', // definido cuando se necesita
+    });
+    this.gisInited = true;
   }
 
-  async addEvent(summary: string, location: string, description: string, startTime: Date, endTime: Date) {
-    const event = {
-      summary,
-      location,
-      description,
-      start: {
-        dateTime: startTime.toISOString(),
-        timeZone: 'America/Santiago' 
-      },
-      end: {
-        dateTime: endTime.toISOString(),
-        timeZone: 'America/Santiago'
-      },
-      reminders: {
-        useDefault: false,
-        overrides: [
-          { method: 'email', minutes: 24 * 60 },
-          { method: 'popup', minutes: 10 }
-        ]
+  private async waitForInitialization(): Promise<void> {
+    return new Promise((resolve) => {
+      const checkInit = () => {
+        if (this.gapiInited && this.gisInited) {
+          resolve();
+        } else {
+          setTimeout(checkInit, 100);
+        }
+      };
+      checkInit();
+    });
+  }
+
+  async signIn(): Promise<void> {
+    await this.waitForInitialization();
+    
+    return new Promise((resolve, reject) => {
+      try {
+        this.tokenClient.callback = async (response: any) => {
+          if (response.error) {
+            reject(response);
+          }
+          resolve(response);
+        };
+        this.tokenClient.requestAccessToken({ prompt: 'consent' });
+      } catch (err) {
+        console.error('Error en el inicio de sesión:', err);
+        reject(err);
       }
-    };
-
-    await gapi.client.calendar.events.insert({
-      calendarId: 'primary',
-      resource: event
     });
   }
-}
+
+  async crearEvento(eventoData: any): Promise<any> {
+    await this.signIn(); // Asegurarse de que el usuario esté autenticado
+
+    try {
+      const response = await gapi.client.calendar.events.insert({
+        calendarId: 'primary',
+        resource: eventoData,
+      });
+      console.log('Evento creado:', response.result);
+      return response.result;
+    } catch (err) {
+      console.error('Error al crear el evento:', err);
+      throw err;
+    }
+  }
+ }
