@@ -1,5 +1,5 @@
 ion-item {
-  --background: black;
+  --background: white;
   --border-radius: 15px; 
   padding: 9px; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
@@ -7,7 +7,7 @@ ion-item {
 }
 
 ion-label {
-  color: white; 
+  color: rgb(247, 247, 247); 
   font-weight: bold; 
 
 
@@ -15,7 +15,7 @@ ion-label {
 
 ion-input {
   --background: transparent; 
-  color: white; 
+  color: rgb(8, 8, 8); 
   font-size: 20px;
 }
 

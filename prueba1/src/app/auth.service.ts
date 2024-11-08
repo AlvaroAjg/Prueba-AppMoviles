@@ -7,7 +7,7 @@ export class AuthService {
   private isAunthenticate = false;
 
   login(Usuario: string, Password: string): boolean {
-    if (Usuario === 'Alvaro' && Password === '1234'){
+    if (Usuario === 'Alvaro' && Password === '1234'||Usuario === 'Matias' && Password === '1234'){
       this.isAunthenticate = true;
      
      return true; 
