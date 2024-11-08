@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CalendarService } from '../services/calendar.service';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-calendario',
@@ -16,7 +17,16 @@ export class CalendarioPage {
     end: ''
   };
 
-  constructor(private calendarService: CalendarService, private router:Router) {}
+  constructor(
+    private calendarService: CalendarService,
+    private router: Router,
+    private alertController: AlertController
+  ) {
+
+    const currentDate = new Date();
+    this.eventoData.start = currentDate.toISOString();
+    this.eventoData.end = new Date(currentDate.getTime() + 60 * 60 * 1000).toISOString(); 
+  }
 
   async crearEvento() {
     const event = {
@@ -36,10 +46,23 @@ export class CalendarioPage {
     try {
       await this.calendarService.crearEvento(event);
       console.log('Evento creado exitosamente');
+
+      this.mostrarAlerta('Listo', 'El evento se creó correctamente.');
     } catch (err) {
-      console.error('Error al crear el evento:', err);
+      console.error('Error al crea// Mostrar alerta de error')
+      this.mostrarAlerta('Error', 'Hubo un problema al crear el evento.');
     }
   }
+
+  async mostrarAlerta(titulo: string, mensaje: string) {
+    const alert = await this.alertController.create({
+      header: titulo,
+      message: mensaje,
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
   goToDashboard() {
     this.router.navigate(['/dashboard']);
   }

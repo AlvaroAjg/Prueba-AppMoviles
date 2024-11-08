@@ -21,7 +21,7 @@ export class CalendarService {
   }
 
   private loadScripts(): void {
-    // Cargar el script de Google API
+    
     const gapiScript = document.createElement('script');
     gapiScript.src = 'https://apis.google.com/js/api.js';
     gapiScript.async = true;
@@ -29,7 +29,8 @@ export class CalendarService {
     gapiScript.onload = () => this.gapiLoaded();
     document.head.appendChild(gapiScript);
 
-    // Cargar el script de Google Identity Services
+   
+    
     const gisScript = document.createElement('script');
     gisScript.src = 'https://accounts.google.com/gsi/client';
     gisScript.async = true;
@@ -51,7 +52,8 @@ export class CalendarService {
     this.tokenClient = google.accounts.oauth2.initTokenClient({
       client_id: this.CLIENT_ID,
       scope: this.SCOPES,
-      callback: '', // definido cuando se necesita
+      callback: '', 
+      
     });
     this.gisInited = true;
   }
@@ -89,7 +91,8 @@ export class CalendarService {
   }
 
   async crearEvento(eventoData: any): Promise<any> {
-    await this.signIn(); // Asegurarse de que el usuario esté autenticado
+    await this.signIn(); 
+    
 
     try {
       const response = await gapi.client.calendar.events.insert({

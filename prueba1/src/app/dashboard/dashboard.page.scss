@@ -1,19 +1,20 @@
 
 .content-wrapper {
-    background: #fef9e7; /* Un color claro y cálido para el fondo del wrapper */
-    border-radius: 20px; /* Bordes redondeados */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más suave */
+    background: #fef9e7; 
+    border-radius: 20px; 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
     padding: 30px 20px;
     text-align: center;
     width: 100%;
     max-width: 400px;
     position: relative;
-    top: 20%; /* Mueve el contenedor hacia abajo, colocándolo en la mitad superior de la pantalla */
+    top: 20%; 
+    margin-left: 15px;
   }
   
   h1 {
     font-size: 2rem;
-    color: #5a67d8; /* Color azul para combinar con el fondo */
+    color: #061ff7; /* Color azul para combinar con el fondo */
     margin-bottom: 15px;
   }
   
@@ -34,7 +35,7 @@
   }
   
   .custom-button:last-child {
-    --background: #ffc75f; /* Color diferente para el botón "Volver" */
+    --background: #032cf9; 
     --background-hover: #f4a261;
     --box-shadow: 0 4px 12px rgba(255, 199, 95, 0.4);
   }

@@ -12,7 +12,7 @@
 <ion-content class="background">
   <form (ngSubmit)="crearEvento()">
     <ion-item>
-      <ion-label position="stacked">Título</ion-label>
+      <ion-label position="stacked">Título del evento </ion-label>
       <ion-input [(ngModel)]="eventoData.summary" name="summary" required></ion-input>
     </ion-item>
 
@@ -26,15 +26,17 @@
       <ion-input [(ngModel)]="eventoData.location" name="location"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-card class="inicio">
       <ion-label position="stacked">Fecha y hora de inicio</ion-label>
       <ion-datetime [(ngModel)]="eventoData.start" name="start" display-format="YYYY-MM-DDTHH:mm"></ion-datetime>
-    </ion-item>
-
-    <ion-item>
+    </ion-card>
+    
+    <ion-card class="fin">
       <ion-label position="stacked">Fecha y hora de finalización</ion-label>
       <ion-datetime [(ngModel)]="eventoData.end" name="end" display-format="YYYY-MM-DDTHH:mm"></ion-datetime>
-    </ion-item>
+    </ion-card>
+
+   
 
     <ion-button class="evento" expand="block" type="submit">Crear Evento</ion-button>
   </form>
