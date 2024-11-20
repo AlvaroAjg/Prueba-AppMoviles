@@ -3,12 +3,15 @@ import { NavController } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
+ 
 
   public Usuario: string = "";
   public Password: string = "";

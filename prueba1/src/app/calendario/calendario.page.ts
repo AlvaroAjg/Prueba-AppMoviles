@@ -25,7 +25,7 @@ export class CalendarioPage {
 
     const currentDate = new Date();
     this.eventoData.start = currentDate.toISOString();
-    this.eventoData.end = new Date(currentDate.getTime() + 60 * 60 * 1000).toISOString(); 
+    this.eventoData.end = new Date(currentDate.getTime() + 60 * 60 * 1000).toISOString();  
   }
 
   async crearEvento() {

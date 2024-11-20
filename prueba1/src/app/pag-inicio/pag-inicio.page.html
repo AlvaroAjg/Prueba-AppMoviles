@@ -28,10 +28,13 @@
   </ion-card>
 
   <div class="button-container">
-    <ion-button expand="block" color="" class="animated-button" (click)="asisAlert()">
+    <ion-button expand="block" color="" class="animated-button" (click)="tomarFoto()">
       <ion-icon name="checkmark-circle-outline"></ion-icon>
-      Registrar
+      Escanear
     </ion-button>
+    <div *ngIf="image">
+      <img [src]="image" />
+    </div>
   </div>
 
 </ion-content>

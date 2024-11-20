@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { Camera, CameraResultType,CameraSource } from '@capacitor/camera';
 
 @Component({
   selector: 'app-pag-inicio',
@@ -9,6 +10,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class PagInicioPage implements OnInit {
   public usuario: any;
+  image: string| undefined;
   
   constructor(private router: Router,public alertCtrl:AlertController) {}
     
@@ -40,6 +42,18 @@ export class PagInicioPage implements OnInit {
       });
       await alert.present();
 
+      
+
 }
+
+  async tomarFoto(){
+    const image= await Camera.getPhoto({
+      quality:90,
+      allowEditing: false,
+      resultType: CameraResultType.DataUrl,
+      source: CameraSource.Camera
+    });
+    this.image = image.dataUrl;
+  }
 
 }
