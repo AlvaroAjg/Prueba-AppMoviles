@@ -1,17 +1,56 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Users</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-item *ngFor="let alumnos of alumnos">
-      <ion-label>
-        <h2>{{ alumnos.nombre }}</h2>
-        <p>{{ alumnos.seccion }}</p>
-        <p>{{ alumnos.asistencia }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="goToDashboard()">
+          <ion-icon slot="icon-only" name="home-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>RegistrAPP</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+
+  <ion-content [fullscreen]="true" class="background">
+
+    <div class="content-wrapper margin-top:40px">
+      <h6 class="custom-ti">Asistencia</h6>
+    </div>
+
+  <div class="table-container">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Sección</th>
+          <th>Asistencia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let alumno of alumnos">
+          <td>{{ alumno.Nombre }}</td>
+          <td>{{ alumno.seccion }}</td>
+          <td
+            [class.asistencia-presente]="alumno.asistencia === 'Presente'"
+            [class.asistencia-ausente]="alumno.asistencia === 'Ausente'"
+          >
+            {{ alumno.asistencia }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Botón para registrar asistencia -->
+  <ion-button expand="block" color="medium" (click)="registrarAsistencia()">
+    Registrar Asistencia
+  </ion-button>
 </ion-content>
+
+<ion-footer [translucent]="true">
+  <ion-toolbar>
+    <ion-title >Duoc UC </ion-title>
+  </ion-toolbar>
+</ion-footer>
