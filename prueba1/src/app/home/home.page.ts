@@ -11,17 +11,21 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
- 
-
-  public Usuario: string = "";
+   public Usuario: string = "";
   public Password: string = "";
 
   constructor(private navCtrl:NavController,private authService: AuthService, private router: Router) {}
 
   login() {
     if (this.authService.login(this.Usuario, this.Password)) {
-    //aprovechamos de usar state para llevar la informacion al dashboard.
-      this.router.navigate(['/dashboard'], { state: { username: this.Usuario } });
+      const userRole = this.authService.getUserRole();
+
+      if (userRole === 'profesor'){
+        this.router.navigate(['/dash-profe'], { state: { username: this.Usuario } });
+      }else if (userRole === 'alumno'){
+        this.router.navigate(['/dashboard'], { state: { username: this.Usuario } });
+      }
+
     } else {
     alert('Nombre de usuario o contraseña incorrectos');
     }

@@ -1,0 +1,42 @@
+
+.content-wrapper {
+    background: #fef9e7; 
+    border-radius: 20px; 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
+    padding: 30px 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    top: 20%; 
+    margin-left: 15px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: #061ff7; /* Color azul para combinar con el fondo */
+    margin-bottom: 15px;
+  }
+  
+  p {
+    color: #2d3748; /* Color de texto oscuro para contraste */
+    margin-bottom: 30px;
+  }
+  
+  .custom-button {
+    --background: #ff6f61; /* Color vibrante */
+    --background-hover: #ff3d3d;
+    --border-radius: 12px;
+    --color: white;
+    --padding: 15px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    --box-shadow: 0 4px 12px rgba(255, 111, 97, 0.4); /* Sombra del botón */
+  }
+  
+  .custom-button:last-child {
+    --background: #032cf9; 
+    --background-hover: #f4a261;
+    --box-shadow: 0 4px 12px rgba(255, 199, 95, 0.4);
+  }
+  

@@ -1,0 +1,47 @@
+/* Contenedor del recuadro */
+.title-box {
+    display: flex; /* Usamos flexbox para centrar contenido */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    height: 200px; /* Altura del recuadro */
+    width: 80%; /* Ancho relativo */
+    margin: 50px auto; /* Centrado en la página */
+    background: linear-gradient(135deg, #36d1dc, #5b86e5); /* Fondo degradado del recuadro */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra para destacar el recuadro */
+    padding: 20px; /* Espaciado interno */
+  }
+  
+  /* Título dentro del recuadro */
+  .titulo {
+    font-family: 'Arial', sans-serif;
+    font-size: 2.0rem; /* Tamaño del texto */
+    color: white; /* Color del texto */
+    text-align: center; /* Centrado del texto */
+    margin: 0; /* Eliminamos el margen por defecto */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para el texto */
+  }
+  
+  .d-flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .qr-wrapper{
+    width: 230px;
+    min-height: 230px;
+    background:var(--ion-color-tertiary);
+    border-radius: 20px;
+  }
+
+  .custom-textarea {
+    width: 100%;
+    --background: #ffffff; 
+    --border-radius: 8px; 
+    --color: #070707; 
+    margin-top: 50px;
+  }
+
+  .qr-placeholder{
+    width: 60px;
+  }

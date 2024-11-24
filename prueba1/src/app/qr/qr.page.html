@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>qr</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background">  
+ <div class="title-box">
+  <h1 class="titulo">Generar Qr para asistencia </h1>
+</div>
+
+  <div id="qrImage">
+    <div class="d-flex-center">
+      <div class="d-flex-center qr-wrapper">
+        <qr-code *ngIf="qrText" [value]="qrText" size="190" errorCorrectionLevel="M"></qr-code>
+        <img *ngIf="!qrText" class="qr-placeholder" src="https://cdn.icon-icons.com/icons2/1521/PNG/512/qrcodehd_106111.png"> 
+      </div>
+
+    </div>
+
+    <ion-textarea
+    label="Escriba algo para convertir en code qr"
+    labelPlacement="stacked"
+    fill="outline"
+    [(ngModel)]="qrText"
+    class="custom-textarea"
+    rows="4"
+    [autoGrow]="true"
+    
+    ></ion-textarea>
+    
+    <ion-button (click)="captureScreen()" *ngIf="qrText" class="submit ion-margin-top" expand="block" > DescargarQr 
+    <ion-icon slot="end" name="download"></ion-icon>  
+    </ion-button>
+  </div>
+
+</ion-content>
