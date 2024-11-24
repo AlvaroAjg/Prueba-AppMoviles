@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
-import { ListaPage } from './lista.page';
+import { RouterModule, Routes } from '@angular/router';
+import { listaPage } from './lista.page'; // Asegúrate de que ListaPage sea el componente exportado.
 
 const routes: Routes = [
   {
     path: '',
-    component: ListaPage
-  }
+    component: listaPage,
+  },
 ];
 
 @NgModule({

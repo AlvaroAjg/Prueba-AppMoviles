@@ -1,5 +1,6 @@
 {
-  "dependencies": {
-    "@capacitor/android": "^6.2.0"
+  "scripts": {
+    "json-server": "json-server --watch db.json --port 3000",
+    "start": "ionic serve"
   }
 }

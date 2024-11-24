@@ -35,6 +35,12 @@ export class PagInicioPage implements OnInit {
       const {data}= await modal.onWillDismiss();
       if (data){
         this.scanResult=data?.barcode?.displayValue;
+
+        if (this.scanResult){
+          window.location.href = this.scanResult;
+        }else{
+          console.error('Escaneo invalido')
+        }
       }
     
     }
